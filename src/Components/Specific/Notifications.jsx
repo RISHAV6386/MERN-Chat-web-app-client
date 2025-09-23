@@ -13,8 +13,10 @@ const Notifications = () => {
   const [acceptFriendRequest] = useAsyncMutation(useAcceptFriendRequestMutation)
   const friendrequestHandler =  ({ _id, accept }) => {
     dispatch(setIsNotification(false))
-
-    acceptFriendRequest("Accepting Request...",{ requestId: _id, accept })
+if(accept){
+  acceptFriendRequest("Accepting Request...",{ requestId: _id, accept })
+}
+else{acceptFriendRequest("Rejecting Request...",{ requestId: _id, accept })}
     
   }
   const onClose = () => (dispatch(setIsNotification(false)))
