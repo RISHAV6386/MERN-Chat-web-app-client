@@ -38,9 +38,7 @@ const Chat = ({ chatId, user }) => {
   const oldMessagesChunk = useGetMessagesQuery({ chatId, page })
 
 
-  // console.log(chatDetails)
   const members = chatDetails?.data?.chat?.members
-  // console.log(messages)
   const messageChange = (e) => {
     setMessage(e.target.value)
     if (!typing) {
@@ -60,7 +58,6 @@ const Chat = ({ chatId, user }) => {
   const errors = [{ isError: chatDetails.isError, error: chatDetails.error },
   { isError: oldMessagesChunk.isError, error: oldMessagesChunk.error }
   ]
-  // console.log(oldMessages)
 
   const handleFileOpen = (e) => {
     dispatch(setIsFileMenu(true))
@@ -70,7 +67,6 @@ const Chat = ({ chatId, user }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!message.trim()) return;
-    // console.log(members);
     socket.emit('NEW_MESSAGE', { chatId, members, message })
     setMessage("");
   }

@@ -5,7 +5,7 @@ const useErrors = (errors = []) => {
         errors.forEach(({ isError, error, fallback }) => {
             if (isError) {
                 if (fallback) fallback();
-                else toast.error(error?.data?.message || "Something went wrong");
+                else toast.error(error?.data?.response?.message || "Something went wrong");
             }
         })
     }, [errors])
@@ -27,7 +27,6 @@ const useAsyncMutation = (mutationHook) => {
                 toast.error("Something went wrong", { id: toastId })
             }
         } catch (error) {
-            console.log(error)
             toast.error("Someting went wrong")
         }
         finally {

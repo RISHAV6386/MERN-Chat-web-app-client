@@ -35,9 +35,6 @@ const AppLayout = () => (WrappedComponent) => {
       getOrSaveFromStorage({ key: "NEW_MESSAGE_ALERT", value: newMessagesAlert })
     }, [newMessagesAlert])
 
-
-    // console.log(error)
-    // console.log(data)
     const handleDeleteChat = (e, chatId, groupChat) => {
       dispatch(setIsDeleteMenu(true))
       dispatch(setSelectedDeleteChat({chatId,groupChat}))

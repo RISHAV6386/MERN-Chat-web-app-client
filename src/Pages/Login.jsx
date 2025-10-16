@@ -25,7 +25,7 @@ const Login = () => {
   const dispatch=useDispatch()
   const handleLogin=async(e)=>{
     e.preventDefault()
-    const toastId=toast.loading("Logging in...") 
+    const toastId=toast.loading("Logging in...")
 
     setIsLoading(true)
     const config= {withCredentials:true,headers:{"Content-Type":"application/json"}}

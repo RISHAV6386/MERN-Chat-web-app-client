@@ -25,7 +25,6 @@ const adminLogout = createAsyncThunk("admin/logout", async (secretKey) => {
         const { data } = await axios.get(`${server}/api/v1/admin/logout`, { withCredentials: true })
         return data.message
     } catch (error) {
-        console.log(error)
         throw error?.response?.data?.response?.message
     }
 })

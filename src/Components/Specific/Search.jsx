@@ -27,11 +27,9 @@ const Search = () => {
       const res = await sendFriendRequest({ userId: id });
       if (res.data) { toast.success(res.data.message, { id: toastId }) }
       else {
-        toast.error(res.error.data.message, { id: toastId })
+        toast.error(res.error.data.response.message, { id: toastId })
       }
-
     } catch (error) {
-      console.log(error);
       toast.error("Something went wrong")
     }
 
